@@ -30,22 +30,22 @@ const Index = () => {
   const [calculatedPrice, setCalculatedPrice] = useState(0);
 
   const services = [
-    { id: "house", name: "Дом", price: 50, icon: "Home", color: "#8B4513" },
+    { id: "house", name: "Дом", price: 0.02, icon: "Home", color: "#8B4513" },
     {
       id: "castle",
       name: "Замок",
-      price: 150,
+      price: 0.03,
       icon: "Castle",
       color: "#4169E1",
     },
     {
       id: "redstone",
       name: "Редстоун механизм",
-      price: 100,
+      price: 0.04,
       icon: "Zap",
       color: "#FFD700",
     },
-    { id: "farm", name: "Ферма", price: 75, icon: "Home", color: "#228B22" },
+    { id: "farm", name: "Ферма", price: 0.01, icon: "Home", color: "#228B22" },
   ];
 
   const reviews = [
@@ -73,8 +73,8 @@ const Index = () => {
     const service = services.find((s) => s.id === selectedService);
     const volume =
       buildingSize.width * buildingSize.height * buildingSize.length;
-    const basePrice = service ? service.price : 50;
-    const totalPrice = Math.ceil((volume * basePrice) / 100);
+    const basePrice = service ? service.price : 0.02;
+    const totalPrice = Math.ceil(volume * basePrice * 100) / 100;
     setCalculatedPrice(totalPrice);
   };
 
